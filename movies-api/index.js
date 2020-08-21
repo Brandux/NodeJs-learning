@@ -2,14 +2,9 @@ const express = require('express');
 const app = express();
 
 const { config } = require('./config/index');
+const  moviesApi  = require('./routes/movies');
 
-app.get('/', (req, res) => {
-    res.send('hola mundo');
-});
-
-app.get('/json', (req, res) => {
-    res.json({hello:'hola mundo'});
-});
+moviesApi(app);
 
 app.listen(config.port, () => {
     console.log('UP ', `${config.port}`);
